@@ -6,7 +6,7 @@ const path = require('path');
 const db = require('./database');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware Setup
 app.use(express.urlencoded({ extended: true }));
