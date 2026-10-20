@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rev Julius Spiritual Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styling */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d4af37; /* Gold */
+            --bg-light: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--accent-color);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('/uploads/pastor-white.jpg') center/cover no-repeat;
+            /* Fallback background color if image isn't uploaded to DB yet */
+            background-color: var(--primary-color); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f1c40f;
+            transform: translateY(-3px);
+        }
+
+        /* Daily Verse Section */
+        .daily-verse {
+            background-color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .daily-verse h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .verse-box {
+            background-color: var(--bg-light);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #verse-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        #verse-ref {
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 5%;
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* About Pastor Section */
+        .about-section {
+            padding: 80px 5%;
+            background-color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 0 var(--accent-color);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Prayer Request Section */
+        .prayer-section {
+            padding: 80px 5%;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .prayer-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .prayer-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Loading State */
+        .loading {
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-section { flex-direction: column; text-align: center; }
+            .about-image img { box-shadow: 5px 5px 0 var(--accent-color); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Rev Julius Spiritual Growth</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#verse">Daily Verse</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#prayer">Prayer Request</a></li>
+            <li><a href="/admin/login" style="color: var(--accent-color);">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Spiritual Growth</h1>
+            <p>Discover the unconditional love of God through His Word. Find hope, inspiration, and a community of faith led by Rev Julius Mwangi.</p>
+            <a href="#prayer" class="btn">Submit a Prayer Request</a>
+        </div>
+    </header>
+
+    <!-- Dynamic Daily Verse Section -->
+    <section id="verse" class="daily-verse">
+        <h2>Verse of the Day</h2>
+        <div class="verse-box">
+            <p id="verse-text" class="loading">Loading today's verse...</p>
+            <span id="verse-ref"></span>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Populated by Backend) -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">Inspiration & Quotes</h2>
+        <div class="gallery-grid" id="gallery-container">
+            <!-- Images will be injected here by JavaScript -->
+            <p class="loading" style="grid-column: 1 / -1; text-align: center;">Loading gallery...</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-image">
+            <!-- Update this path if you upload a specific profile picture -->
+            <img src="/pastor-pink.jpg" alt="Rev Julius Mwangi" onerror="this.src='https://via.placeholder.com/400x500?text=Pastor+Julius'">
+        </div>
+        <div class="about-text">
+            <h2>About Rev Julius</h2>
+            <p>Rev Julius Mwangi is a dedicated servant of God, committed to spreading the message of hope, love, and spiritual growth. Through his ministry, he seeks to guide individuals towards a deeper understanding of God's word and purpose for their lives.</p>
+            <p>Join us on this journey of faith as we seek first the Kingdom of God and His righteousness.</p>
+        </div>
+    </section>
+
+    <!-- Prayer Request Section -->
+    <section id="prayer" class="prayer-section">
+        <h2>Need Prayer?</h2>
+        <p>We believe in the power of prayer. Send us your requests, and our team will stand in agreement with you.</p>
+        
+        <form class="prayer-form" id="prayerForm">
+            <div class="form-group">
+                <label for="name">Your Name (Optional)</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="request">Prayer Request</label>
+                <textarea id="request" rows="4" placeholder="Type your prayer request here..." required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Send Request via Email</button>
+        </form>
+
+        <div style="margin-top: 30px;">
+            <p>Or reach out to us directly on WhatsApp:</p>
+            <a href="#" id="whatsapp-link" class="whatsapp-btn">
+                Message us on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Rev Julius Spiritual Growth. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Connect to Backend -->
+    <script>
+        // Base URL for your API (change if hosting online)
+        const API_URL = ''; 
+
+        // --- 1. Fetch and Display Random Verse ---
+        async function loadDailyVerse() {
+            try {
+                const response = await fetch(`${API_URL}/api/verses`);
+                const verses = await response.json();
+                
+                if (verses && verses.length > 0) {
+                    // Pick a random verse from the database
+                    const randomIndex = Math.floor(Math.random() * verses.length);
+                    const verse = verses[randomIndex];
+                    
+                    document.getElementById('verse-text').classList.remove('loading');
+                    document.getElementById('verse-text').innerText = `"${verse.text}"`;
+                    document.getElementById('verse-ref').innerText = `- ${verse.reference}`;
+                } else {
+                    document.getElementById('verse-text').innerText = "No verses added yet. Please check back later.";
+                }
+            } catch (error) {
+                console.error("Error fetching verses:", error);
+                document.getElementById('verse-text').innerText = "Unable to load verse at this time.";
+            }
+        }
+
+        // --- 2. Fetch and Display Gallery Images ---
+        async function loadGallery() {
+            const container = document.getElementById('gallery-container');
+            try {
+                const response = await fetch(`${API_URL}/api/gallery`);
+                const images = await response.json();
+                
+                container.innerHTML = ''; // Clear loading text
+                
+                if (images && images.length > 0) {
+                    images.forEach(img => {
+                        const div = document.createElement('div');
+                        div.className = 'gallery-item';
+                        // The backend saves images in the /uploads/ folder
+                        div.innerHTML = `<img src="${img.image_url}" alt="Ministry Quote">`;
+                        container.appendChild(div);
+                    });
+                } else {
+                    container.innerHTML = '<p style="text-align: center; width: 100%;">No images uploaded yet.</p>';
+                }
+            } catch (error) {
+                console.error("Error fetching gallery:", error);
+                container.innerHTML = '<p style="text-align: center; width: 100%;">Failed to load gallery.</p>';
+            }
+        }
+
+        // --- 3. Fetch WhatsApp Number ---
+        async function loadContactInfo() {
+            try {
+                const response = await fetch(`${API_URL}/api/contacts`);
+                const contacts = await response.json();
+                
+                // Find the WhatsApp number in the database
+                const waContact = contacts.find(c => c.type === 'whatsapp');
+                
+                if (waContact && waContact.value) {
+                    const whatsappBtn = document.getElementById('whatsapp-link');
+                    // Format number: ensure it starts with 254 (Kenya) and remove leading 0
+                    let phoneNumber = waContact.value.replace(/\D/g, ''); 
+                    if (phoneNumber.startsWith('0')) {
+                        phoneNumber = '254' + phoneNumber.substring(1);
+                    }
+                    
+                    whatsappBtn.href = `https://wa.me/${phoneNumber}?text=Hello%20Rev%20Julius,%20I%20would%20like%20to%20submit%20a%20prayer%20request.`;
+                }
+            } catch (error) {
+                console.error("Error fetching contact info:", error);
+            }
+        }
+
+        // --- 4. Handle Prayer Form Submission ---
+        // Since he doesn't have an email yet, we use a mailto link as a fallback.
+        // Later, you can build a POST route on the backend to save these to a database or send an actual email.
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value || 'Anonymous';
+            const request = document.getElementById('request').value;
+            
+            // REPLACE THIS WITH HIS ACTUAL EMAIL ONCE CREATED
+            const ministryEmail = "revjuliusministry@gmail.com"; 
+            
+            const subject = encodeURIComponent(`Prayer Request from ${name}`);
+            const body = encodeURIComponent(`Hello Rev Julius,\n\nYou have received a new prayer request from the website:\n\nName: ${name}\n\nRequest: ${request}`);
+            
+            // Open the user's default email app
+            window.location.href = `mailto:${ministryEmail}?subject=${subject}&body=${body}`;
+            
+            this.reset();
+        });
+
+        // Run all fetch functions when the page loads
+        window.onload = () => {
+            loadDailyVerse();
+            loadGallery();
+            loadContactInfo();
+        };
+
+    </script>
+</body>
+</html>
