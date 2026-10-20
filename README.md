@@ -36,4 +36,4 @@ To run this project locally on your machine:
 
 ## Development link
    ```bash
-   http://localhost:3000=
+   http://localhost:3000/
